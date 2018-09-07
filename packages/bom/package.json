@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-     "core": "^1.0.0"
+    "core": "^1.0.0",
+    "react": "^16.5.0"
   },
   "author": "",
   "license": "ISC"

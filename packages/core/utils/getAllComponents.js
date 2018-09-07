@@ -1,7 +1,7 @@
 const fs = require('fs-extra')
 const util =  require('util')
 const path = require('path')
-let {flow, map, curryRight, filter} = require('lodash')
+const {flow, map, curryRight, filter} = require('lodash')
 const getComponentShape = require('./getComponentShape')
 const package = require(path.join(process.cwd(), './package.json'))
 

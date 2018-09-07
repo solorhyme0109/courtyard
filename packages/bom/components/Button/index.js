@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 import CyTypes from 'core/types'
+import styles from './index.less'
 
 class Button extends Component {
 
