@@ -1,0 +1,78 @@
+{
+  "appName": "webpaas",
+  "title": "webpaas-test",
+  "theme": "dark",
+  "themesData": {
+    "dark": {
+      "primaryColor": "#000"
+    },
+    "light": {
+      "primaryColor": "#fff"
+    }
+  },
+  "pages": [
+    {
+      "route": "/",
+      "pageId": "/",
+      "title": "index",
+      "template": [
+        {
+          "id": "c:\\Users\\Zhangsw02\\Desktop\\webpaas\\componentsOutput\\Text\\index.js",
+          "src": "c:\\Users\\Zhangsw02\\Desktop\\webpaas\\componentsOutput\\Text\\index.js",
+          "component": "Text",
+          "props": {
+            "content": "Hello MyWebPaas"
+          }
+        },
+        {
+          "id": "c:\\Users\\Zhangsw02\\Desktop\\webpaas\\componentsOutput\\Input\\index.js",
+          "src": "c:\\Users\\Zhangsw02\\Desktop\\webpaas\\componentsOutput\\Input\\index.js",
+          "component": "Input",
+          "props": {
+            "value": "@store.username"
+          },
+          "mutation": {
+            "onChange": "@store.username"
+          }
+        },
+        {
+          "id": "c:\\Users\\Zhangsw02\\Desktop\\webpaas\\componentsOutput\\Button\\index.js",
+          "src": "c:\\Users\\Zhangsw02\\Desktop\\webpaas\\componentsOutput\\Button\\index.js",
+          "component": "Button",
+          "props": {
+            "desc": "按钮"
+          },
+          "effects": {
+            "alert": {
+              "message": "submmiting"
+            },
+            "request": {
+              "url": "api.domian.com/login",
+              "body": {
+                "username": "@store.username",
+                "lvl": "@query.lvl",
+                "userId": "@match.userId"
+              }
+            }
+          }
+        }
+      ],
+      "store": {
+        "username": "annoying"
+      },
+      "style": {
+
+      },
+      "subPages": [
+        {
+          "route": "/console",
+          "pageId": "/console",
+          "title": "控制台",
+          "template": [],
+          "store": {},
+          "style": {}
+        }
+      ]
+    }
+  ]
+}
