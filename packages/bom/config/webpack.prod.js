@@ -5,6 +5,7 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 
 module.exports = {
   mode: 'production',
+  target: 'node',
   entry: paths.componentsEntry,
   output: {
     path: paths.output,
@@ -81,7 +82,7 @@ module.exports = {
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output both options are
       // optional
-      filename: '[name].css',
+      filename: '[name]/index.css',
       chunkFilename: '[id].css'
     })
   ],
@@ -93,7 +94,11 @@ module.exports = {
         sourceMap: true // set to true if you want JS source maps
       }),
       new OptimizeCSSAssetsPlugin({})
-    ]
+    ],
+    splitChunks: {
+      chunks: 'all',
+      name: '_vendors'
+    }
   },
   performance: {
     hints: 'warning'
