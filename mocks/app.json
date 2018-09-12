@@ -15,18 +15,18 @@
       "route": "/",
       "pageId": "/",
       "title": "index",
-      "template": [
+      "components": [
         {
-          "id": "c:\\Users\\Zhangsw02\\Desktop\\webpaas\\componentsOutput\\Text\\index.js",
-          "src": "c:\\Users\\Zhangsw02\\Desktop\\webpaas\\componentsOutput\\Text\\index.js",
+          "id": "packages/bom/components/Text",
+          "src": "packages/bom/components/Text",
           "component": "Text",
           "props": {
             "content": "Hello MyWebPaas"
           }
         },
         {
-          "id": "c:\\Users\\Zhangsw02\\Desktop\\webpaas\\componentsOutput\\Input\\index.js",
-          "src": "c:\\Users\\Zhangsw02\\Desktop\\webpaas\\componentsOutput\\Input\\index.js",
+          "id": "packages/bom/components/Input",
+          "src": "packages/bom/components/Input",
           "component": "Input",
           "props": {
             "value": "@store.username"
@@ -36,8 +36,8 @@
           }
         },
         {
-          "id": "c:\\Users\\Zhangsw02\\Desktop\\webpaas\\componentsOutput\\Button\\index.js",
-          "src": "c:\\Users\\Zhangsw02\\Desktop\\webpaas\\componentsOutput\\Button\\index.js",
+          "id": "packages/bom/components/Button",
+          "src": "packages/bom/components/Button",
           "component": "Button",
           "props": {
             "desc": "按钮"
@@ -63,7 +63,7 @@
       "style": {
 
       },
-      "subPages": [
+      "pages": [
         {
           "route": "/console",
           "pageId": "/console",
