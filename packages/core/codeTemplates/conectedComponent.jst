@@ -1,0 +1,37 @@
+import {connect} from 'react-redux'
+import Courtyard from 'courtyard'
+import {map} from 'lodash'
+import SourceComponent from '<%= componentSource %>'
+
+const hydrate = (config = {}) => (Component)  => {
+  const propsFromMeta = config.componentMeta.props || {}
+  const mutationMeta = config.componentMeta.mutation
+  const effectsMeta = config.componentMeta.effects
+  let mutation, effects, effectsParams
+  if (mutationMeta) {
+    mutation = (dispatch) => map(mutationMeta, (value, key) => (
+      {
+        [key]: Courtyard.mutation[key](dispatch)(value)
+      })
+    ).reduce((acc, value) => Object.assign(acc, value), {})
+  }
+  if (effectsMeta) {
+    effects = map(effectsMeta, (value, key) => ({
+      [key]: Courtyard.effects[key](value)
+    })).reduce((acc, value) => Object.assign(acc, value), {})
+    effectsParams = map(effectsMeta, (value, key) => ({
+      [key]: value
+    })).reduce((acc, value) => Object.assign(acc, value), {})
+  }
+
+  return connect(
+    state => Object.assign({}, propsFromMeta, state[config.pageId]),
+    (dispatch) => ({
+      mutation: mutation ? mutation(dispatch) : undefined,
+      effects,
+      effectsParams
+    })
+  )(Component)
+}
+
+export default hydrate(<%= config %>)(SourceComponent)

@@ -1,0 +1,5 @@
+{
+  "runbuildOutput": "./AppOutput",
+  "componentSourceOutput": "./AppOutput/componentSource",
+  "connectedComponentOutput": "./AppOutput/connectedComponentOutput"
+}
