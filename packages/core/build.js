@@ -2,6 +2,7 @@ const loadAppDesc = require('./utils/loadAppDesc')
 const _ = require('lodash')
 
 const getConnectedComponent = require('./utils/getConnectedComponent')
+const copyAppFrameToOutput = require('./utils/copyAppFrameToOutput')
 
 async function main() {
   // 获取应用描述文件, 加载app.json
@@ -19,6 +20,10 @@ async function main() {
     })
   }
   genComponentsCode(appDesc.pages)
+
+  // 将app框架拷贝到app输出目录
+  copyAppFrameToOutput()
+
 }
 
 main()

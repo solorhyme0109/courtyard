@@ -20,5 +20,12 @@
     "style-loader": "^0.23.0",
     "url-loader": "^1.1.1",
     "webpack": "^4.17.2"
+  },
+  "dependencies": {
+    "connected-react-router": "^4.4.1",
+    "react": "^16.5.0",
+    "react-dom": "^16.5.0",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0"
   }
 }
