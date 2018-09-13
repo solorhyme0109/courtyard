@@ -68,7 +68,7 @@
           "route": "/console",
           "pageId": "/console",
           "title": "控制台",
-          "template": [],
+          "components": [],
           "store": {},
           "style": {}
         }

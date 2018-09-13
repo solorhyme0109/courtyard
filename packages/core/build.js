@@ -14,8 +14,8 @@ async function main() {
       _.forEach(page.components, (component) => {
         getConnectedComponent(component, {pageId: page.pageId})
       })
-      if (page.page) {
-        genComponentsCode(page.page)
+      if (page.pages) {
+        genComponentsCode(page.pages)
       }
     })
   }
