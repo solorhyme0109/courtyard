@@ -1,6 +1,6 @@
 import React from 'react'
 
-import componentsManifest from '../componentsManifest'
+import componentsManifest from '../helpers/componentMenifest.js'
 import getRoutesBaseOnPages from './index'
 
 export default class RouteComponent extends React.PureComponent {

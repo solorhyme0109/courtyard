@@ -3,7 +3,7 @@ import { Provider } from 'react-redux'
 import { ConnectedRouter } from 'connected-react-router'
 
 import store, { history } from './store'
-import getRoutesBaseOnPages from './rotues'
+import getRoutesBaseOnPages from './routes'
 import pages from './data/pages.json'
 
 const AppRoutes = getRoutesBaseOnPages(pages)

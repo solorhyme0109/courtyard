@@ -1,6 +1,7 @@
 {
   "tmpDir": "./tmp",
   "runbuildOutput": "./AppOutput",
-  "componentSourceOutput": "./AppOutput/componentSource",
-  "connectedComponentOutput": "./AppOutput/connectedComponentOutput"
+  "componentSourceOutput": "componentSource",
+  "connectedComponentOutput": "connectedComponents",
+  "app_JSON_omits": ["pages", "title"]
 }

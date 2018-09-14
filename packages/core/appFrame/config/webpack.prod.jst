@@ -1,7 +1,10 @@
-const paths = require('./paths')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+
+const path = require('path')
+const paths = require('./paths')
 
 module.exports = (env, args) => 
 {
@@ -9,14 +12,18 @@ module.exports = (env, args) =>
     {
       mode: 'production',
       target: args['target'] || 'web',
-      entry: paths.componentsEntry,
+      entry: paths.entry,
       output: {
         path: `${paths.output}/${args['target'] || 'web'}`,
-        libraryTarget: 'commonjs2',
         filename: '[name]/index.js'
       },
       devtool: 'source-map',
       resolve: {
+        modules: [
+          path.join(__dirname, '../<%= connectedComponents %>'),
+          path.join(__dirname, '../<%= sourceComponents %>'),
+          'node_modules'
+        ],
         extensions: [
           '.web.js',
           '.mjs',
@@ -86,6 +93,12 @@ module.exports = (env, args) =>
           // optional
           filename: '[name]/index.css',
           chunkFilename: '[id].css'
+        }),
+        new HtmlWebpackPlugin({
+          title: '<%= title %>',
+          template: 'public/index.html',
+          // favicon: '', 用户上传的favicon, 暂时没做
+          minify: true,
         })
       ],
       optimization: {

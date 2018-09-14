@@ -20,9 +20,10 @@ module.exports = async function getConnectedComponent(componentMeta, pageMeta) {
      }
   )
 
-  await fs.ensureDir(config.connectedComponentOutput)
+  const targetDir = path.join(config.runbuildOutput, config.connectedComponentOutput)
+  await fs.ensureDir(targetDir)
   const componentOutputFilename = `${componentPackageDist}.connected.js`
-  const componentOutputPath = path.join(config.connectedComponentOutput, componentOutputFilename)
+  const componentOutputPath = path.join(targetDir, componentOutputFilename)
   await genComponentCodeFile(componentOutputPath, componentOutputCode)
   componentMeta.resolve = componentOutputFilename
 }

@@ -3,12 +3,13 @@ import { applyMiddleware, compose, createStore } from 'redux'
 import { routerMiddleware } from 'connected-react-router'
 
 import rootReducer from './rootReducer'
+import appInitialState from './appInitialState'
 
 export const history = createBrowserHistory()
 
 const store = createStore(
-  rootReducer,
-  undefined,
+  connectRouter(history)(rootReducer),
+  appInitialState,
   compose(
     applyMiddleware(
       routerMiddleware(history), // for dispatching history actions
