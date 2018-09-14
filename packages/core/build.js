@@ -1,28 +1,16 @@
 const loadAppDesc = require('./utils/loadAppDesc')
-const _ = require('lodash')
-
-const getConnectedComponent = require('./utils/getConnectedComponent')
-const copyAppFrameToOutput = require('./utils/copyAppFrameToOutput')
+const genAllComponentsFile =  require('./utils/genAllComponentsFile')
+const buildAppFrame = require('./utils/buildAppFrame')
 
 async function main() {
-  // 获取应用描述文件, 加载app.json
+  // Load app.json, get App description file
   const appDesc = await loadAppDesc()
 
-  // 生成所有组件代码
-  function genComponentsCode (pages) {
-    _.forEach(pages, (page) => {
-      _.forEach(page.components, (component) => {
-        getConnectedComponent(component, {pageId: page.pageId})
-      })
-      if (page.pages) {
-        genComponentsCode(page.pages)
-      }
-    })
-  }
-  genComponentsCode(appDesc.pages)
+  // Generate all component files
+  await genAllComponentsFile(appDesc)
 
-  // 将app框架拷贝到app输出目录
-  copyAppFrameToOutput()
+  // Generate app code
+  await buildAppFrame(appDesc)
 
 }
 

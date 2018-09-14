@@ -16,7 +16,7 @@ export default (pages) => class Routes extends React.Component {
               title={page.title}
               path={page.route}
               exact={page['exact']}
-              render={(props) => <RouteComponent {...props} components={page.components} pages={page.pages} />}
+              render={(props) => <RouteComponent {...props} components={page.components} pageId={page.pageId} pages={page.pages} />}
             />)
         }
       </Switch>

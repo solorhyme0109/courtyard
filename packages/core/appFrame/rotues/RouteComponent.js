@@ -3,7 +3,7 @@ import React from 'react'
 import componentsManifest from '../componentsManifest'
 import getRoutesBaseOnPages from './index'
 
-export default class RouteComponent extends React.Component {
+export default class RouteComponent extends React.PureComponent {
   constructor(props) {
     super(props)
     if (Array.isArray(props.pages)) {
@@ -12,20 +12,20 @@ export default class RouteComponent extends React.Component {
   }
 
   render () {
-    const {components, pages} = this.props
+    const {components, pageId, style} = this.props
     const SubPages = this.subPages
     return (
-      <React.Fragment>
+      <div id={pageId} style={style}>
         {
           components.map((componentMeta) => {
             const Component = componentsManifest[componentMeta.resolve]
-            return <Component {...componentMeta.props} />
+            return <Component key={componentMeta.resolve} {...componentMeta.props} />
           })
         }
         {
           SubPages && <SubPages />
         }
-      </React.Fragment>
+      </div>
     )
   }
 }

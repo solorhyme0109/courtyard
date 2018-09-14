@@ -1,4 +1,5 @@
 {
+  "tmpDir": "./tmp",
   "runbuildOutput": "./AppOutput",
   "componentSourceOutput": "./AppOutput/componentSource",
   "connectedComponentOutput": "./AppOutput/connectedComponentOutput"
