@@ -10,6 +10,9 @@
       "primaryColor": "#fff"
     }
   },
+  "dependencies": {
+
+  },
   "pages": [
     {
       "route": "/",
@@ -17,17 +20,17 @@
       "title": "index",
       "components": [
         {
-          "id": "packages/bom/components/Text",
-          "src": "packages/bom/components/Text",
+          "id": "@courtyardComponents/Text",
+          "src": "@courtyardComponents/Text",
           "component": "Text",
           "props": {
             "content": "Hello MyWebPaas"
           }
         },
         {
-          "id": "packages/bom/components/Input",
-          "src": "packages/bom/components/Input",
-          "component": "Input",
+          "id": "@courtyardComponents/Input",
+          "src": "@courtyardComponents/Input",
+          "component": "Button",
           "props": {
             "value": "@store.username"
           },
@@ -36,8 +39,8 @@
           }
         },
         {
-          "id": "packages/bom/components/Button",
-          "src": "packages/bom/components/Button",
+          "id": "@courtyardComponents/Button",
+          "src": "@courtyardComponents/Button",
           "component": "Button",
           "props": {
             "desc": "按钮"

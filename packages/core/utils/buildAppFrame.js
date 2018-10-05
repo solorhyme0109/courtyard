@@ -49,6 +49,18 @@ module.exports = async (appDesc) => {
   await fs.writeFile(path.join(tmp, 'config/webpack.prod.js'), webpackConfigData)
   await fs.unlink(path.join(tmp, 'config/webpack.prod.jst'))
 
+  // generate package.json
+  const originPackageJSON = JSON.parse(await fs.readFile(path.join(tmp, 'package.json'), { encoding: 'utf8' }))
+  const packageJSON = _.merge(originPackageJSON, {
+    name: appDesc.appName,
+    dependencies: Object.assign(
+      {},
+      appDesc.dependencies,
+      config.appPackageJSON.dependencies
+    )
+  })
+  await fs.writeFile(path.join(tmp, 'package.json'), JSON.stringify(packageJSON))
+
   // output appFrame to the output dir
   await fs.copy(tmp, config.runbuildOutput)
   await fs.remove(tmp)

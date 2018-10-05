@@ -22,6 +22,10 @@
     "url-loader": "^1.1.1",
     "webpack": "^4.17.2"
   },
+  "scripts": {
+    "build": "node packages/core/build.js",
+    "buildApp": "node packages/core/buildApp.js"
+  },
   "dependencies": {
     "connected-react-router": "^4.4.1",
     "react": "^16.5.0",

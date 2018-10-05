@@ -3,3 +3,4 @@ node_modules/
 **/dist/
 AppOutput/
 tmp/
+.DS_Store
